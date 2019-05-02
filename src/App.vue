@@ -1,9 +1,9 @@
 <template lang="pug">
     #app
       #nav
-        router-link(to='/travel') Travel
+        router-link(to='/brianprofile/travel') Travel
         |  |
-        router-link(to='/bmi') BMI
+        router-link(to='/brianprofile/bmi') BMI
       .content-wrapper
         router-view
 </template>

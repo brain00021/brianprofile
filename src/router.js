@@ -10,12 +10,17 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/travel',
+      path: '/',
       name: 'travel',
       component: travel
     },
     {
-      path: '/bmi',
+      path: '/brianprofile/travel',
+      name: 'travel',
+      component: travel
+    },
+    {
+      path: '/brianprofile/bmi',
       name: 'bmi',
       component: bmi
     },
