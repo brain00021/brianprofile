@@ -14,7 +14,7 @@
     .container-rightside
       h1(v-if="newItem == ''") 高雄旅遊資訊
       h1(v-else) {{ newItem }}
-      span.icon
+      span.titleicon
         img(src="@/assets/practice/icons_down.png")
       .item-content
         travelCard(
@@ -98,89 +98,5 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  .home {
-    display:flex;
-    align-item:stretch;
-  }
-  .button{
-    cursor:pointer;
-    margin:15px auto;
-    padding:10px;
-    border-radius: 5px;
-    color:#fff;
-    font-size:15pt;
-  }
 
-  .container-leftside{
-    position:fixed;
-    padding:15px;
-    width:300px;
-    border-radius: 5px;
-    background:#eee;
-    box-shadow: 0 0 10px rgba(#000,.5);
-    float: left;
-    min-height:100%;
-    @media screen and (max-width: 760px) {
-      width:100%;
-      z-index: 10;
-      min-height: unset;
-      .button{
-        display: inline-block;
-        margin-left:15px;
-      }
-    }
-    h2{
-      margin:15px auto;
-    }
-  }
-  .container-rightside{
-    width:100%;
-    float: right;
-    margin-left:300px;
-    vertical-align: top;
-    text-align: center;
-    @media only screen and (max-width: 760px) {
-      margin-left:0;
-      margin-top:230px;
-    }
-    .icon {
-      background: #e8e8e8;
-      border:1px solid #559AC8;
-      border-radius: 50%;
-      position:relative;
-      display:block;
-      margin:auto;
-      top:-20px;
-      width:30px;
-      height:30px;
-      line-height: 30px;
-    }
-    h1{
-      margin-bottom:20px;
-      &::before{
-        content:'';
-        display:block;
-        position: relative;
-        top:60px;
-        width:100%;
-        height: 15px;
-        background-image: linear-gradient(to right, #559AC8  33%, rgba(255,255,255,0) 0%);
-        background-position: bottom;
-        background-size: 10px 2px;
-        background-repeat: repeat-x;
-      }
-    }
-
-  }
-  #optionchoice{
-    width:100%;
-    min-width:150px;
-    padding:10px;
-    border:1px solid #fff;
-    border-radius: 5px;
-    background:rgba(#fff,.5)j;
-  }
-  .item-content{
-    text-align:left;
-  }
 </style>

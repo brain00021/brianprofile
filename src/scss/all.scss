@@ -1,3 +1,4 @@
+//基本首頁
 $trans: transparent;
 $block: #e8e8e8;
 $line: #ffffff;
@@ -24,3 +25,5 @@ body {
     $gridSize $gridSize,
     $gridSize $gridSize;
 }
+//其他頁面
+@import 'travel.scss'; // 旅遊網站
