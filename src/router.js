@@ -15,6 +15,11 @@ export default new Router({
       component: travel
     },
     {
+      path: '/brianprofile',
+      name: 'travel',
+      component: travel
+    },
+    {
       path: '/brianprofile/travel',
       name: 'travel',
       component: travel
