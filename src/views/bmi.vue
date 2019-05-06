@@ -16,7 +16,7 @@
       h1 BMI 紀錄
       hr
       .weightcard(v-for="item in todolistArry" ,:class="[{'red':item.BMI > 40},{'green':item.BMI<30},{'blue':item.BMI<16}]")
-        .title 
+        .title
           | {{item.Title}}
         .content
           span BMI
@@ -29,76 +29,67 @@
           span {{item.height}}cm
         .date
           | {{item.Date}}
-        
     .bmi-footer
       .logo-change
         img(src="@/assets/practice/BMICLogo.png")
 </template>
 <script>
 export default {
-  data(){
-    return{
+  data () {
+    return {
       heightNumber: 0,
       weightNumber: 0,
-      bmiresult:0,
-      datetime:'',
+      bmiresult: 0,
+      datetime: '',
 
       // todolist:localStorage.getItem('toDoList'),
-      todolistArry: JSON.parse(window.localStorage.getItem('todolist')||'[]'),
+      todolistArry: JSON.parse(window.localStorage.getItem('todolist') || '[]'),
       bmicurrenttitle: '基本體重'
     }
   },
-  methods:{
-    checkWeight: function(){
-      let isNum = /^[0-9]*$/;
-      if(isNum.test(this.weightNumber.toString()) && isNum.test(this.heightNumber.toString())){
-        this.bmiresult = (this.weightNumber !== 0 || this.heightNumber !== 0 ) ? (this.weightNumber / (this.heightNumber*2)*100).toFixed(2) : 0
-        this.getDate();
-        this.getTitle();
-        debugger;
-        this.todolistArry.push({'weight':this.weightNumber,'height':this.heightNumber,'BMI':this.bmiresult,'Date':this.datetime,'Title':this.bmicurrenttitle})
+  methods: {
+    checkWeight: function () {
+      let isNum = /^[0-9]*$/
+      if (isNum.test(this.weightNumber.toString()) && isNum.test(this.heightNumber.toString())) {
+        this.bmiresult = (this.weightNumber !== 0 || this.heightNumber !== 0) ? (this.weightNumber / (this.heightNumber * 2) * 100).toFixed(2) : 0
+        this.getDate()
+        this.getTitle()
+        this.todolistArry.push({ 'weight': this.weightNumber, 'height': this.heightNumber, 'BMI': this.bmiresult, 'Date': this.datetime, 'Title': this.bmicurrenttitle })
         // Window.localStorage.setItem('toDoList' , JSON.stringify(toDoListArr))
-      }else{
-        alert('請輸入正確的數字');
-      } 
+      } else {
+        alert('請輸入正確的數字')
+      }
     },
-    getDate: function (){
-      const currentdate = new Date(); 
-      this.datetime = "Time: " + currentdate.getFullYear() +  "/"
-                + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getDate()
-                //+ " @ "  
-                //+ currentdate.getHours() + ":"  
-                //+ currentdate.getMinutes() + ":" 
-                //+ currentdate.getSeconds();
+    getDate: function () {
+      const currentdate = new Date()
+      this.datetime = 'Time:' + currentdate.getFullYear() + '/' + (currentdate.getMonth() + 1) + '/' + currentdate.getDate()
     },
-    getTitle: function (){
-       if(this.bmiresult <= 15) {
-         return this.bmicurrenttitle = '非常嚴重體重不足'
-       }else if(this.bmiresult <= 16) {
-         return this.bmicurrenttitle = '嚴重體重不足'
-       }else if(this.bmiresult <= 18.5 ) {
-        return this.bmicurrenttitle = '體重過輕'
-       }else if(this.bmiresult <= 25 ) {
-        return this.bmicurrenttitle = '正常體重'
-       }else if(this.bmiresult <= 30 ) {
-        return this.bmicurrenttitle = '體重過重'
-       }else if(this.bmiresult <= 35 ) {
-        return this.bmicurrenttitle = '中等肥胖'
-       }else if(this.bmiresult <= 40 ) {
-        return this.bmicurrenttitle = '嚴重肥胖'
-       }else{
-         return this.bmicurrenttitle = '你真的超胖'
-       }
-    },
+    getTitle: function () {
+      if (this.bmiresult <= 15) {
+        this.bmicurrenttitle = '非常嚴重體重不足'
+      } else if (this.bmiresult <= 16) {
+        this.bmicurrenttitle = '嚴重體重不足'
+      } else if (this.bmiresult <= 18.5) {
+        this.bmicurrenttitle = '體重過輕'
+      } else if (this.bmiresult <= 25) {
+        this.bmicurrenttitle = '正常體重'
+      } else if (this.bmiresult <= 30) {
+        this.bmicurrenttitle = '體重過重'
+      } else if (this.bmiresult <= 35) {
+        this.bmicurrenttitle = '中等肥胖'
+      } else if (this.bmiresult <= 40) {
+        this.bmicurrenttitle = '嚴重肥胖'
+      } else {
+        this.bmicurrenttitle = '你真的超胖'
+      }
+    }
 
   },
-  watch:{
-    todolistArry:function(item){
-      console.log(item);
-      window.localStorage.setItem('todolist',JSON.stringify(item))
+  watch: {
+    todolistArry: function (item) {
+      window.localStorage.setItem('todolist', JSON.stringify(item))
     },
-    deep:true//深复制
+    deep: true // 深复制
   }
 }
 </script>
@@ -124,7 +115,6 @@ export default {
       margin-left:5px;
     }
   }
-  
 }
 .red{
   border-left:5px solid red;
