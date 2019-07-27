@@ -1,6 +1,10 @@
 <template lang="pug">
-  .aboutus-wrapper
-    p Pugtest
+  .index-wrapper
+    el-row
+      el-col(:md="12")
+        span left sign
+      el-col(:md="12")
+        span right sign 
 </template>
 <script>
 export default {

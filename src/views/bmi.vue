@@ -5,10 +5,10 @@
         img(src="@/assets/practice/BMICLogo.png")
       .input-wrapper
         .input-content
-          span 身高 / cm
+          span Height / cm
           input(v-model="heightNumber")
         .input-content
-          span 體重 / kg
+          span Weight / kg
           input(v-model="weightNumber")
       .input-check
         .button(@click="checkWeight()") result

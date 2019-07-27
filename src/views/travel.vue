@@ -1,5 +1,5 @@
 <template lang="pug">
-  .home
+  .travel-index
     .container-leftside
       select#optionchoice(@change='fliter(newItem)' v-model="newItem")
         option(value="" selected="selected" ) --請選擇行政區--
